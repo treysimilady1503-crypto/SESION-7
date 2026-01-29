@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 2 - MCD Recursivo</title>
+  <style>
+    body { background: #fff3e0; color: #e65100; font-family: Arial, sans-serif; padding: 20px;}
+  </style>
+</head>
+<body>
+  <h1>calcular MCD</h1>
+  <label>A: <input type="number" id="numA"></label><br>
+  <label>B: <input type="number" id="numB"></label><br>
+  <button onclick="calcularMCD()">Calcular</button>
+  <p id="res"></p>
+
+  <script>
+    function calcularmcd(a, b) {
+      if (b === 0) return a;
+      return mcdRecursivo(b, a % b);
+    }
+
+    function calcularMCD() {
+      const a = parseInt(document.getElementById("numA").value);
+      const b = parseInt(document.getElementById("numB").value);
+      document.getElementById("res").innerText =
+        "MCD: " + mcdRecursivo(a, b);
+    }
+  </script>
+</body>
+</html>

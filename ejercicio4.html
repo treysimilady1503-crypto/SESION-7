@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 4 - Contar Vocales</title>
+  <style>
+    body { background: #fce4ec; color: #880e4f; font-family: Arial, sans-serif; padding: 20px;}
+    input { width: 400px; }
+  </style>
+</head>
+<body>
+  <h1>Contar Vocales </h1>
+  <label>Texto:</label><br>
+  <input type="text" id="texto">
+  <button onclick="contar()">Contar</button>
+  <p id="vocales"></p>
+
+  <script>
+    function contarVocales(str, idx) {
+      if (idx === str.length) return 0;
+      const vocales = "aeiouAEIOU";
+      const contar = vocales.includes(str[idx]) ? 1 : 0;
+      return contar + contarVocales(str, idx + 1);
+    }
+
+    function contar() {
+      const txt = document.getElementById("texto").value;
+      document.getElementById("vocales").innerText =
+        "Total vocales: " + contarVocales(txt, 0);
+    }
+  </script>
+</body>
+</html>

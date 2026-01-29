@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3 - Suma Recursiva</title>
+  <style>
+    body { background: #f1f8e9; color: #33691e; font-family: Arial, sans-serif; padding: 20px;}
+    input { width: 300px; }
+  </style>
+</head>
+<body>
+  <h1>Suma Recursiva de Arreglo</h1>
+  <label>Números (separados por coma):</label><br>
+  <input type="text" id="arreglo">
+  <button onclick="sumar()">Sumar</button>
+  <p id="total"></p>
+
+  <script>
+    function sumaRec(arr, i) {
+      if (i === arr.length) return 0;
+      return arr[i] + sumaRec(arr, i + 1);
+    }
+
+    function sumar() {
+      const arr = document.getElementById("arreglo").value
+        .split(",").map(n => parseInt(n.trim()));
+      document.getElementById("total").innerText =
+        "Suma total: " + sumaRec(arr, 0);
+    }
+  </script>
+</body>
+</html>

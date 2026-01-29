@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1 - Potencia Recursiva</title>
+  <style>
+    body { background: #e0f7fa; color: #006064; font-family: Arial, sans-serif; padding: 20px; }
+    input, button { padding: 8px; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Potencia Recursiva</h1>
+  <label>Base: <input type="number" id="base"></label><br>
+  <label>Exponente: <input type="number" id="exp"></label><br>
+  <button onclick="calcular()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+    function potenciaRecursiva(base, exponente) {
+      if (exponente === 0) return 1;
+      return base * potenciaRecursiva(base, exponente - 1);
+    }
+
+    function calcular() {
+      const b = parseInt(document.getElementById("base").value);
+      const e = parseInt(document.getElementById("exp").value);
+      document.getElementById("resultado").innerText =
+        "Resultado: " + potenciaRecursiva(b, e);
+    }
+  </script>
+</body>
+</html>
